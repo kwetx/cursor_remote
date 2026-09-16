@@ -1,0 +1,22 @@
+{
+  "sessions": {
+    "7bb3e589-3de0-4a39-a978-bf4866902a89": {
+      "user_message_count": 2,
+      "agent_message_count": 6,
+      "start_timestamp": "2026-09-16T18:30:46+08:00",
+      "end_timestamp": "2026-09-16T18:30:46+08:00",
+      "markdown_size_bytes": 1645,
+      "provider": "cursoride",
+      "last_updated": "2026-09-16T10:34:28Z"
+    },
+    "fe55f7be-265b-4e18-adef-d68978a7c493": {
+      "user_message_count": 21,
+      "agent_message_count": 135,
+      "start_timestamp": "2026-09-16T10:38:57+08:00",
+      "end_timestamp": "2026-09-16T10:38:57+08:00",
+      "markdown_size_bytes": 198618,
+      "provider": "cursoride",
+      "last_updated": "2026-09-16T10:21:12Z"
+    }
+  }
+}
