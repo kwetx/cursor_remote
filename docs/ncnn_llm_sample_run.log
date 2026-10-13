@@ -1,0 +1,52 @@
+# ncnn_llm sample 运行记录
+
+- 模型：`qwen3_0.6b_int8`（https://mirrors.sdu.edu.cn/ncnn_modelzoo/qwen3_0.6b_int8/）
+- 程序：`./build/llm_ncnn_run`
+- 后端：CPU（`-DNCNN_LLM_ENABLE_VULKAN=OFF`），`--threads 2`，`--no-builtin-tools`
+- 结果：已完整加载模型并完成一轮对话生成
+
+成功回复示例（User: 用一句话介绍你自己）：
+
+> 我是热爱学习和探索的AI助手，在这里与你一起发现世界的新奇之处！
+
+---
+
+## Run 1
+[ncnn_llm_gpt] Vulkan disabled, using CPU only
+[ncnn_llm_gpt] BF16 storage enabled for decoder
+Loading model from ./assets/qwen3_0.6b_int8
+  decoder param: ./assets/qwen3_0.6b_int8/qwen3_decoder.ncnn.param
+  decoder bin: ./assets/qwen3_0.6b_int8/qwen3_decoder.ncnn.bin
+  embed param: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.param
+  embed bin: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin
+  proj_out param: ./assets/qwen3_0.6b_int8/qwen3_proj_out.ncnn.param
+  proj_out bin: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin
+[ncnn_llm_gpt] Shared LM head with embedding weights (skipped loading ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin, saved 593 MB)
+llm_ncnn_run (cli). Type 'exit' or 'quit' to end the conversation.
+Using template: Qwen3
+User: Assistant: 
+
+我是热爱学习和探索的AI助手，在这里与你一起发现世界的新奇之处！
+User: 
+## Run 2
+[ncnn_llm_gpt] Vulkan disabled, using CPU only
+[ncnn_llm_gpt] BF16 storage enabled for decoder
+Loading model from ./assets/qwen3_0.6b_int8
+  decoder param: ./assets/qwen3_0.6b_int8/qwen3_decoder.ncnn.param
+  decoder bin: ./assets/qwen3_0.6b_int8/qwen3_decoder.ncnn.bin
+  embed param: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.param
+  embed bin: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin
+  proj_out param: ./assets/qwen3_0.6b_int8/qwen3_proj_out.ncnn.param
+  proj_out bin: ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin
+[ncnn_llm_gpt] Shared LM head with embedding weights (skipped loading ./assets/qwen3_0.6b_int8/qwen3_embed_token.ncnn.bin, saved 593 MB)
+llm_ncnn_run (cli). Type 'exit' or 'quit' to end the conversation.
+Using template: Qwen3
+User: Assistant: 
+User: 
+## Perf (stderr/stdout)
+/tmp/llm_stderr2.txt:Overall: 61 tokens in 1670.92 ms | Prefill: 29 tok (129.03 tok/s) | Decode: 32 tok (22.13 tok/s, 45.19 ms/tok)
+/tmp/llm_stderr2.txt---------------------------------------------------------------------------------
+/tmp/llm_stderr2.txt-PREFILL BREAKDOWN (29 prompt tokens, 224.75 ms total)
+/tmp/llm_stderr2.txt-Phase                               Count   Total (ms)   Avg/Tok (ms)   Time %
+/tmp/llm_stderr2.txt----------------------------------   -----   ----------   ------------   ------
+/tmp/llm_stderr2.txt-Tokenizer Encode                       2         0.18          0.006     0.1%
